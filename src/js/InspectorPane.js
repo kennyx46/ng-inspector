@@ -4,8 +4,8 @@
  * toggling the pane on and off, handle mouse scrolling, resizing and first
  * level of child views.
  */
-
-module.exports = function() {
+var NGI = require('./NGI');
+NGI.InspectorPane = module.exports = function() {
 
 	// The width of the pane can be resized by the user, and is persisted via
 	// localStorage
@@ -91,7 +91,7 @@ module.exports = function() {
 	var MAXIMUM_WIDTH = 100;
 
 	// Listen for mousemove events in the page body, setting the canResize state
-	// if the mouse hovers close to the 
+	// if the mouse hovers close to the
 	function onMouseMove(event) {
 
 		// Don't do anything if the inspector is detached from the DOM
@@ -109,7 +109,7 @@ module.exports = function() {
 			canResize = false;
 			body.classList.remove('ngi-resize');
 		}
-		
+
 		// If the user is currently performing a resize, the width is adjusted
 		// based on the cursor position
 		if (isResizing) {
@@ -137,7 +137,7 @@ module.exports = function() {
 			body.classList.add('ngi-resizing');
 		}
 	}
-	
+
 
 	// Listen to mouseup events on the page, turning off the resize mode if one
 	// is underway. The inspector width is then persisted in the localStorage

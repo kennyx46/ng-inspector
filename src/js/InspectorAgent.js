@@ -1,9 +1,11 @@
 // `NGi.InspectorAgent` is responsible for the page introspection (Scope and DOM
 // traversal)
 
-var NGI = {
-	Scope: require('./Scope')
-};
+// var NGI = NGI ||  {
+// 	Scope: require('./Scope')
+// };
+
+var NGI = require('./NGI');
 
 function InspectorAgent() {}
 
@@ -43,7 +45,7 @@ function traverseDOM(app, node) {
 				// TreeViewItem
 				if ($node.isolateScope) {
 					var $isolate = $node.isolateScope();
-					if ($isolate) {	
+					if ($isolate) {
 						var isolateMatch = NGI.Scope.get($isolate.$id);
 						if (isolateMatch) {
 							isolateMatch.setNode(node);
@@ -70,7 +72,7 @@ function traverseDOM(app, node) {
 		if (--nodeQueue === 0) {
 			// Done
 		}
-		
+
 	}
 }
 
@@ -113,14 +115,15 @@ InspectorAgent.inspectApp = function(app) {
 
 	// With the root Node for the app, we retrieve the $rootScope
 	var $node = window.angular.element(app.node);
-	var $rootScope = $node.data('$scope').$root;
+	// var $rootScope = $node.data('$scope').$root;
+	var $rootScope = $node.data('$injector').get('$rootScope');
 
 	// Then start the Scope traversal mechanism
 	traverseScopes($rootScope, app, function() {
 
 		// Once the Scope traversal is complete, the DOM traversal starts
 		traverseDOM(app, app.node);
-		
+
 	});
 };
 
@@ -167,3 +170,4 @@ InspectorAgent.findApps = function (App) {
 };
 
 module.exports = InspectorAgent;
+NGI.InspectorAgent = InspectorAgent;

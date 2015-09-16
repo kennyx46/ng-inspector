@@ -1,10 +1,10 @@
-var NGI = {
-	InspectorPane: require('./InspectorPane'),
-	App: require('./App'),
-	Scope: require('./Scope')
-};
-
-module.exports = function() {
+// var NGI = NGI ||  {
+// 	InspectorPane: require('./InspectorPane'),
+// 	App: require('./App'),
+// 	Scope: require('./Scope')
+// };
+var NGI = require('./NGI');
+NGI.Inspector = module.exports = function() {
 
 	// Settings defaults
 	this.settings = {

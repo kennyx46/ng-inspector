@@ -1,9 +1,11 @@
-var NGI = {
-	InspectorAgent: require('./InspectorAgent'),
-	Module: require('./Module'),
-	TreeView: require('./TreeView'),
-	Service: require('./Service')
-};
+// var NGI = NGI ||  {
+// 	InspectorAgent: require('./InspectorAgent'),
+// 	Module: require('./Module'),
+// 	TreeView: require('./TreeView'),
+// 	Service: require('./Service')
+// };
+
+var NGI = require('./NGI');
 
 function App(node, modules) {
 	var pane = window.ngInspector.pane;
@@ -38,7 +40,7 @@ function App(node, modules) {
 	this.node = node;
 
 	this.$injector = window.angular.element(node).data('$injector');
-	
+
 	if (!modules) {
 		modules = [];
 	} else if (typeof modules === typeof '') {
@@ -193,4 +195,5 @@ function nodeRep(node) {
 	return label;
 }
 
-module.exports = App;
+// module.exports = App;
+NGI.App = App;

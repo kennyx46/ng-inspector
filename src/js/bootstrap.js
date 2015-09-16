@@ -1,7 +1,22 @@
-var NGI = {
-	Inspector: require('./Inspector'),
-	App: require('./App')
-};
+// var NGI = NGI ||  {
+// 	Inspector: require('./Inspector'),
+// 	App: require('./App')
+// };
+
+require('./App');
+require('./Highlighter');
+require('./Inspector');
+require('./InspectorAgent');
+require('./InspectorPane');
+require('./Model');
+require('./ModelMixin');
+require('./Module');
+require('./Scope');
+require('./Service');
+require('./TreeView');
+require('./Utils');
+
+var NGI = require('./NGI');
 
 function bootstrap() {
 

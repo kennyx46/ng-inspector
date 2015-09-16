@@ -1,3 +1,5 @@
+var NGI = require('./NGI');
+
 function getUserDefinedKeys(values) {
 	return Object.keys(values).filter(function(key) {
 		return !isPrivateAngularProp(key);
@@ -53,7 +55,7 @@ ModelMixin.update = function(values, depth, Model) {
 		this.modelObjs[key].view.destroy();
 		delete this.modelObjs[key];
 	}
-	
+
 	// New keys
 	for (i = 0; i < diff.added.length; i++) {
 		key = diff.added[i];
@@ -80,3 +82,4 @@ ModelMixin.extend = function(obj) {
 };
 
 module.exports = ModelMixin;
+NGI.ModelMixin = ModelMixin;

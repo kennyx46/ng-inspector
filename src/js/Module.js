@@ -1,6 +1,7 @@
-var NGI = {
-	Service: require('./Service')
-};
+// var NGI = NGI ||  {
+// 	Service: require('./Service')
+// };
+var NGI = require('./NGI');
 
 function Module(app, name) {
 
@@ -38,3 +39,4 @@ Module.register = function(app, name) {
 };
 
 module.exports = Module;
+NGI.Module = Module;

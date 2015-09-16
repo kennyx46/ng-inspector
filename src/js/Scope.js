@@ -1,10 +1,10 @@
-var NGI = {
-	TreeView: require('./TreeView'),
-	ModelMixin: require('./ModelMixin'),
-	InspectorAgent: require('./InspectorAgent'),
-	Model: require('./Model')
-};
-
+// var NGI = NGI ||  {
+// 	TreeView: require('./TreeView'),
+// 	ModelMixin: require('./ModelMixin'),
+// 	InspectorAgent: require('./InspectorAgent'),
+// 	Model: require('./Model')
+// };
+var NGI = require('./NGI');
 function Scope(app, ngScope, isIsolate) {
 
 	var angular = window.angular;
@@ -115,3 +115,4 @@ Scope.instance = function(app, ngScope, isIsolate) {
 };
 
 module.exports = Scope;
+NGI.Scope = Scope;

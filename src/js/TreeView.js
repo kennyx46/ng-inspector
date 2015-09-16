@@ -1,7 +1,9 @@
-var NGI = {
-	Service: require('./Service'),
-	Highlighter: require('./Highlighter')
-};
+// var NGI = NGI ||  {
+// 	Service: require('./Service'),
+// 	Highlighter: require('./Highlighter')
+// };
+
+var NGI = require('./NGI');
 
 function TreeViewItem(label) {
 
@@ -52,7 +54,7 @@ function TreeViewItem(label) {
 		} else {
 			this.label.removeChild(this.caret);
 		}
-	}
+	};
 
 	this.addChild = function(childItem, top) {
 		if (!!top) {
@@ -191,4 +193,5 @@ TreeView.modelItem = function(key, value, depth) {
 	return item;
 };
 
-module.exports = TreeView;
+// module.exports = TreeView;
+NGI.TreeView = TreeView;

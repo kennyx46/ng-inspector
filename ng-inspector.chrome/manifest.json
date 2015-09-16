@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "ng-inspector for AngularJS",
+  "name": "ng-inspector for AngularJS2",
   "description": "Inspector pane for AngularJS apps",
   "version": "0.5.11",
   "background": {
@@ -23,7 +23,7 @@
       "19": "btn19.png",
       "38": "btn38.png"
     },
-    "default_title": "ng-inspector"
+    "default_title": "ng-inspector12"
   },
   "content_scripts": [
     {
@@ -35,7 +35,8 @@
       ],
       "js": [
         "inject.js"
-      ]
+      ],
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [

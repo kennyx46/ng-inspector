@@ -1,3 +1,5 @@
+var NGI = require('./NGI');
+
 function Highlighter() {}
 
 function offsets(node) {
@@ -38,4 +40,5 @@ Highlighter.clear = function() {
 	}
 };
 
-module.exports = Highlighter;
+// module.exports = Highlighter;
+NGI.Highlighter = Highlighter;

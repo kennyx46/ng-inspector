@@ -1,7 +1,8 @@
-var NGI = {
-	Utils: require('./Utils')
-};
+// var NGI = NGI ||  {
+// 	Utils: require('./Utils')
+// };
 
+var NGI = require('./NGI');
 var CLASS_DIRECTIVE_REGEXP = /(([\d\w\-_]+)(?:\:([^;]+))?;?)/;
 
 function Service(app, module, invoke) {
@@ -10,7 +11,7 @@ function Service(app, module, invoke) {
 	this.definition = invoke[2];
 	this.name = (typeof this.definition[0] === typeof '') ? this.definition[0] : null;
 	this.factory = this.definition[1];
-	
+
 	switch(this.provider) {
 		case '$compileProvider':
 
@@ -127,4 +128,5 @@ Service.parseQueue = function(app, module) {
 	return arr;
 };
 
-module.exports = Service;
+// module.exports = Service;
+NGI.Service = Service;

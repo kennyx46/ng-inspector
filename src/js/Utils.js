@@ -1,3 +1,5 @@
+var NGI = require('./NGI');
+
 var Utils = {};
 
 var SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g;
@@ -13,7 +15,7 @@ Utils.camelCase = function(name) {
 			return offset ? letter.toUpperCase() : letter;
 		}).
 		replace(MOZ_HACK_REGEXP, 'Moz$1');
-}
+};
 
 var FN_ARGS = /^function\s*[^\(]*\(\s*([^\)]*)\)/m;
 var FN_ARG_SPLIT = /,/;
@@ -31,12 +33,12 @@ var PREFIX_REGEXP = /^(x[\:\-_]|data[\:\-_])/i;
  */
 Utils.directiveNormalize = function(name) {
 	return Utils.camelCase(name.replace(PREFIX_REGEXP, ''));
-}
+};
 
 /**
  * Receives a service factory and returns an injection token. Only used in
  * older versions of AngularJS that did not expose `.annotate`
- * 
+ *
  * Adapted from https://github.com/angular/angular.js/blob/0baa17a3b7ad2b242df2b277b81cebdf75b04287/src/auto/injector.js
  **/
 Utils.annotate = function(fn) {
@@ -65,6 +67,8 @@ Utils.annotate = function(fn) {
 	}
 
 	return $inject;
-}
+};
 
-module.exports = Utils;
+
+// module.exports = Utils;
+NGI.Utils = Utils;

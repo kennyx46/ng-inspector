@@ -1,9 +1,9 @@
-var NGI = {
-	TreeView: require('./TreeView'),
-	ModelMixin: require('./ModelMixin'),
-	Utils: require('./Utils')
-};
-
+// var NGI = NGI ||  {
+// 	TreeView: require('./TreeView'),
+// 	ModelMixin: require('./ModelMixin'),
+// 	Utils: require('./Utils')
+// };
+var NGI = require('./NGI');
 function Model(key, value, depth) {
 
 	this.key = key;
@@ -118,3 +118,4 @@ Model.instance = function(key, value, depth) {
 };
 
 module.exports = Model;
+NGI.Model = Model;
